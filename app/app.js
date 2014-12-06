@@ -14,8 +14,8 @@ var App = Ember.Application.extend({
   Resolver: Resolver
 });
 
-// Mock API
-var loggedIn = false,
+// Stubbed API
+var loggedIn = true,
   FIXTURES = {
     'actors': [
       { id: '1', name: 'Sylvester Stallone', age: 68 },
@@ -31,6 +31,7 @@ var loggedIn = false,
   };
 
 var server = new Pretender(function(){
+  console.log('foo');
   var successReturn, unauthorizedReturn;
 
   successReturn = function(resource) {
