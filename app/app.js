@@ -41,7 +41,7 @@ var server = new Pretender(function(){
     return [403, {'Content-Type': 'application/json'}, '{"error": "You need to sign in to view this content."}'];
   };
 
-  this.get('/actors', function(request){
+  this.get('/api/actors', function(request){
     if (loggedIn === false) {
       return unauthorizedReturn();
     } else {
@@ -49,7 +49,7 @@ var server = new Pretender(function(){
     }
   });
 
-  this.get('/actors/:id', function(request){
+  this.get('/api/actors/:id', function(request){
     var resource;
     if (loggedIn === false) {
       return unauthorizedReturn();
@@ -59,7 +59,7 @@ var server = new Pretender(function(){
     }
   });
 
-  this.get('/movies', function(request){
+  this.get('/api/movies', function(request){
     if (loggedIn === false) {
       return unauthorizedReturn();
     } else {
@@ -67,7 +67,7 @@ var server = new Pretender(function(){
     }
   });
 
-  this.get('/movies/:id', function(request){
+  this.get('/api/movies/:id', function(request){
     var resource;
     if (loggedIn === false) {
       return unauthorizedReturn();
@@ -77,7 +77,7 @@ var server = new Pretender(function(){
     }
   });
 
-  this.post('/session', function(request){
+  this.post('/api/session', function(request){
     var queryParams = {};
 
     request.requestBody.split('&').forEach(function(item) {
