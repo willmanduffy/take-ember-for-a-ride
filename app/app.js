@@ -24,7 +24,7 @@ var loggedIn = true,
     ]
   };
 
-var server = new Pretender(function(){
+new Pretender(function(){
   var successReturn, unauthorizedReturn;
 
   successReturn = function(resource) {
@@ -35,7 +35,7 @@ var server = new Pretender(function(){
     return [403, {'Content-Type': 'application/json'}, '{"error": "You need to sign in to view this content."}'];
   };
 
-  this.get('/api/actors', function(request){
+  this.get('/api/actors', function(){
     if (loggedIn === false) {
       return unauthorizedReturn();
     } else {
@@ -53,7 +53,7 @@ var server = new Pretender(function(){
     }
   });
 
-  this.get('/api/movies', function(request){
+  this.get('/api/movies', function(){
     if (loggedIn === false) {
       return unauthorizedReturn();
     } else {
