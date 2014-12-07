@@ -27,9 +27,9 @@ test('Should allow navigation to the actors page from the main page', function()
   });
 });
 
-test('Should list all actors', function() {
+test('Should only list actors over the age of 70', function() {
   visit('/actors').then(function() {
-    equal(find('li:contains("Sylvester Stallone")').length, 1);
+    equal(find('li:contains("Sylvester Stallone")').length, 0);
     equal(find('li:contains("Brian Dennehy")').length, 1);
   });
 });
