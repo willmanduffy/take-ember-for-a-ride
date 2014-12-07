@@ -6,6 +6,13 @@ var App;
 module('Integration - Movie Page', {
   setup: function() {
     App = startApp();
+
+    // FIMXE: Temporary sign in to allow access to pages
+    visit('/login').
+      fillIn('input#identification', 'tony').
+      fillIn('input#password', 'montana');
+
+    click('button[type="submit"]');
   },
   teardown: function() {
     Ember.run(App, 'destroy');

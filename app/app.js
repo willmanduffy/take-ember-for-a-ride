@@ -9,7 +9,7 @@ import Pretender from 'pretender';
 Ember.MODEL_FACTORY_INJECTIONS = true;
 
 // Stubbed API
-var loggedIn = true,
+var loggedIn = false,
   FIXTURES = {
     'actors': [
       { id: '1', name: 'Sylvester Stallone', age: 68 },

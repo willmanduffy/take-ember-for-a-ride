@@ -7,6 +7,7 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
   this.resource('actors', function() {});
+  this.route('login');
 
   this.route('movies', function() {
     this.route('show', { path: ':movie_id' });
