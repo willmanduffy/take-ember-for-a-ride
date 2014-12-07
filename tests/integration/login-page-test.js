@@ -12,10 +12,10 @@ module('Integration - Login Page', {
   }
 });
 
-test('Should allow navigation to the login page from the main page', function() {
+test('Should redirect to the login page when trying to access a protected page', function() {
   visit('/').then(function() {
-    click('a:contains("Login")').then(function() {
-      equal(find('h1').text(), 'Login');
+    click('a:contains("Movies")').then(function() {
+      equal(find('.module h1').text(), 'Login');
     });
   });
 });

@@ -22,7 +22,7 @@ module('Integration - Movie Page', {
 test('Should allow navigation to the movies page from the main page', function() {
   visit('/').then(function() {
     click('a:contains("Movies")').then(function() {
-      equal(find('h1').text(), 'Movies');
+      equal(find('.module h1').text(), 'Movies');
     });
   });
 });
@@ -37,8 +37,8 @@ test('Should list all movies', function() {
 test('Should be able to navigate to a movie page', function() {
   visit('/movies').then(function() {
     click('a:contains("Missing in Action")').then(function() {
-      equal(find('h1').text(), 'Missing in Action');
-      equal(find('span').text(), 'Score: 23% · Release Date: May 27, 2014');
+      equal(find('.module h1').text(), 'Missing in Action');
+      equal(find('.movie-data').text(), 'Score: 23% · Release Date: 05/27/2014');
 
       equal(find('li:contains("Chuck Norris")').length, 1);
     });

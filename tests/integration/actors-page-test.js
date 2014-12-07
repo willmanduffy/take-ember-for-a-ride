@@ -22,7 +22,7 @@ module('Integration - Actor Page', {
 test('Should allow navigation to the actors page from the main page', function() {
   visit('/').then(function() {
     click('a:contains("Actors")').then(function() {
-      equal(find('h1').text(), 'Actors');
+      equal(find('.module h1').text(), 'Actors');
     });
   });
 });

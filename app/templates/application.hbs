@@ -1,10 +1,30 @@
-{{link-to 'Actors' 'actors'}}
-{{link-to 'Movies' 'movies'}}
+<nav class='top-bar' data-topbar role='navigation'>
+  <ul class='title-area'>
+    <li class='name'>
+    <h1>{{#link-to 'index'}}Ember Demo{{/link-to}}</h1>
+    </li>
 
-{{#if session.isAuthenticated}}
-  <a {{ action 'invalidateSession' }}>Logout</a>
-{{else}}
-  {{#link-to 'login'}}Login{{/link-to}}
-{{/if}}
+    <li class='toggle-topbar menu-icon'><a href='#'><span>Menu</span></a></li>
+  </ul>
 
-{{outlet}}
+  <section class='top-bar-section'>
+    <ul class='right'>
+      <li>{{link-to 'Main Page' 'index'}}</li>
+      <li>{{link-to 'Actors' 'actors'}}</li>
+      <li>{{link-to 'Movies' 'movies'}}</li>
+
+      {{#if session.isAuthenticated}}
+        <li><a {{ action 'invalidateSession' }}>Logout</a></li>
+      {{/if}}
+    </ul>
+  </section>
+</nav>
+
+<section>
+  <div class='row'>
+    {{outlet}}
+  <div>
+</section>
+
+{{!-- Init Foundation JS. Not necessary but nice to not strand users in smaller sizes --}}
+{{view view.foundation}}

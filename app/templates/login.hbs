@@ -1,12 +1,19 @@
-<h1>Login</h1>
+<div class='medium-8 columns medium-centered'>
+  {{#if errorMessage}}
+    <div data-alert class='alert-box alert'>
+      <strong>Login failed: {{errorMessage}}</strong>
+    </div>
+  {{/if}}
 
-<form {{action 'authenticate' on='submit'}}>
-  {{input id='identification' placeholder='Username' value=identification}}
-  {{input id='password' placeholder='Enter Password' type='password' value=password}}
+  <div class='module'>
+    <h1>Login</h1>
 
-  <button type='submit'>Login</button>
-</form>
+    <form {{action 'authenticate' on='submit'}}>
+      {{input id='identification' placeholder='Username' value=identification}}
+      {{input id='password' placeholder='Enter Password' type='password' value=password}}
 
-{{#if errorMessage}}
-  <strong>Login failed: {{errorMessage}}</strong>
-{{/if}}
+      <button type='submit'>Login</button>
+    </form>
+  </div>
+</div>
+
