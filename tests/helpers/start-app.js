@@ -9,6 +9,18 @@ export default function startApp(attrs) {
   var attributes = Ember.merge({}, config.APP);
   attributes = Ember.merge(attributes, attrs); // use defaults, but you can override;
 
+  Ember.Test.registerHelper('loginThroughForm',
+    function() {
+      Ember.run(function() {
+        visit('/login').
+          fillIn('input#identification', 'tony').
+          fillIn('input#password', 'montana');
+
+        click('button[type="submit"]');
+      });
+    }
+  );
+
   Ember.run(function() {
     App = Application.create(attributes);
     App.setupForTesting();

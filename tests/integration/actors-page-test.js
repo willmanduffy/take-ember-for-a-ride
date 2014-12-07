@@ -7,12 +7,7 @@ module('Integration - Actor Page', {
   setup: function() {
     App = startApp();
 
-    // FIMXE: Temporary sign in to allow access to pages
-    visit('/login').
-      fillIn('input#identification', 'tony').
-      fillIn('input#password', 'montana');
-
-    click('button[type="submit"]');
+    loginThroughForm();
   },
   teardown: function() {
     Ember.run(App, 'destroy');
